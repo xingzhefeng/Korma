@@ -147,7 +147,7 @@
                as-sql)))))
 (prn (as-sql
        (insert users
-               (values {:first "chris" :last "granger"}))))
+               (values {:name "granger" :age 3 :riqi (java.util.Date.)}))))
 (deftest insert-queries
   (sql-only
    (are [result query] (= result query)

@@ -28,7 +28,7 @@
   ["drop table if exists \"state\";"
    "create table \"state\" (\"id\" varchar(20), \"name\" varchar(100));"
    "drop table if exists \"users\";"
-   "create table \"users\" (\"id\" integer auto_increment primary key, \"name\" varchar(100), \"age\" integer);"
+   "create table \"users\" (\"id\" integer auto_increment primary key, \"name\" varchar(100), \"age\" integer , \"riqi\" integer);"
    "drop table if exists \"address\";"
    "create table \"address\" (\"id\" integer auto_increment primary key, \"user_id\" integer , \"state_id\" varchar(20), \"number\" varchar(20), \"street\" varchar(200), \"city\" varchar(200), \"zip\" varchar(10), foreign key (\"user_id\") references \"users\"(\"id\"), foreign key (\"state_id\") references \"state\"(\"id\"));"])
 
@@ -38,7 +38,7 @@
 (defn reset-schema []
   (dorun
    (map exec-raw schema)))
-
+;(reset-schema)
 (defn- populate-states [data]
   (insert state
           (values (:state data))))

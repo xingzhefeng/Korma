@@ -288,7 +288,7 @@
   (jdbc/db-is-rollback-only *current-conn*))
 
 (defn- exec-sql [{:keys [results sql-str params]}]
-  (prn "zheli:" (apply vector sql-str params))
+  (prn "zheli:" results (apply vector sql-str params))
   (let [keys (get-in *current-db* [:options :naming :keys])]
     (case results
       :results (jdbc/query *current-conn*
