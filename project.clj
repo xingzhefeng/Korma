@@ -11,10 +11,10 @@
 
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [com.mchange/c3p0 "0.9.5.2"]
-                 [org.clojure/java.jdbc "0.3.7"]]
-
+                 [org.clojure/java.jdbc "0.3.7"]
+                 [com.h2database/h2 "1.4.191"]
+                 ]
   :min-lein-version "2.0.0"
-
   :profiles {:dev {:dependencies [[gui-diff "0.6.6"]
                                   [postgresql "9.3-1102.jdbc41"]
                                   [slamhound "1.5.5"]

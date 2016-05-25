@@ -301,6 +301,9 @@
 (def noop-query "DO 0")
 
 (defn sql-insert [query]
+  ;(prn query)
+  ;{:ent {:table "users"}, :table "users", :db nil, :alias nil, :type :insert, :values [{:first "chris", :last "granger"}], :results :keys}
+  ;"INSERT INTO \"users\" (\"first\", \"last\") VALUES (?, ?)"
   (let [ins-keys (sort (distinct (mapcat keys (:values query))))
         keys-clause (utils/comma-separated (map field-identifier ins-keys))
         ins-values (insert-values-clause ins-keys (:values query))
@@ -308,6 +311,11 @@
         neue-sql (if-not (empty? ins-keys)
                    (str "INSERT INTO " (table-str query) " " (utils/wrap keys-clause) " VALUES " values-clause)
                    noop-query)]
+    (prn ins-keys)
+    (prn keys-clause)
+    (prn ins-values)
+    (prn values-clause)
+    (prn neue-sql)
     (assoc query :sql-str neue-sql)))
 
 ;;*****************************************************

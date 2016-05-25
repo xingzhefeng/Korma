@@ -131,7 +131,9 @@
         "DELETE FROM \"users\" WHERE (\"users\".\"id\" = ?)"
         (delete users
                 (where {:id 3})))))
-
+#_(prn (-> (insert* "users")
+         (values {:first "chris" :last "granger"})
+         as-sql))
 (deftest insert-function
   (is (= "INSERT INTO \"users\" (\"first\", \"last\") VALUES (?, ?)"
          (-> (insert* "users")
@@ -143,7 +145,9 @@
            (-> (insert* "users")
                (values {})
                as-sql)))))
-
+(prn (as-sql
+       (insert users
+               (values {:first "chris" :last "granger"}))))
 (deftest insert-queries
   (sql-only
    (are [result query] (= result query)
