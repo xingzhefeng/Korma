@@ -11,8 +11,8 @@
 
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [com.mchange/c3p0 "0.9.5.2"]
-                 [org.clojure/java.jdbc "0.3.7"]
-                 [com.h2database/h2 "1.4.191"]
+                 ;[org.clojure/java.jdbc "0.3.7"]
+                 [com.h2database/h2 "1.4.187"]
                  ]
   :min-lein-version "2.0.0"
   :profiles {:dev {:dependencies [[gui-diff "0.6.6"]
